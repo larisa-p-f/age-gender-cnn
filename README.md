@@ -50,6 +50,21 @@ For **Model B**:
 
 The full coursework report, including methodology, training details, and analysis, can be found in [report.pdf](./report.pdf).
 
+### Test Set Performance (2,000 images)
+
+| Model   | Age MAE (Test) | Gender Accuracy (Test) |
+|---------|----------------|-------------------------|
+| Model A (Custom CNN) | 7.09 years | 87.8% |
+| Model B (VGG16 Fine-tuned) | 6.61 years | 89.1% |
+
+- Both models generalised well to unseen test data.  
+- Model B slightly outperformed Model A on both age and gender tasks.  
+
+### Key Areas for Improvement
+- **Model B architecture**: while shared convolutional layers are useful, adding **more task-specific fully connected layers** (with dropout) could improve performance.  
+- **Loss functions**: MAE was used for age, but **MSE may be more suitable** as it penalises larger errors more heavily.  
+- **Loss weighting**: since age loss (~10) is much higher than gender loss (<1), applying **non-uniform weights** could balance the optimisation and prevent the model from focusing disproportionately on age prediction.  
+
 ---
 
 ## Features & Techniques
